@@ -20,7 +20,11 @@
 
 //  step 3 play round
 
-//
+//  compare choices from user and comp.
+//  keep score of user and comp
+// 
+
+//step 1
 
 function getComputerChoice() {
     const computerChoices = ["rock", "paper", "scissors"];
@@ -28,6 +32,8 @@ function getComputerChoice() {
     return computerChoices[i];   
 }
 console.log(getComputerChoice())
+
+//step 2
 
 function getUserChoice(userChoice) {
     
@@ -40,6 +46,8 @@ function getUserChoice(userChoice) {
 let userInput = prompt("rock, paper, scissors!");
 let userChoice = getUserChoice(userInput);
 console.log(getUserChoice(userChoice))
+
+//step 3
 
 let userScore = 0;
 let computerScore = 0;
