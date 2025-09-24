@@ -6,34 +6,48 @@
 //  #3 output result (computerScore) vs (userScore)
 
 
-//  Step 1
+//  Step 1 comp choice
 
 //  If number 1  then computer choice = rock
 //  If number 2 then computer choice = paper
 //  If number 3 then computer choice = scissors
 
-//  step 2
+//  step 2 user choice
+
 //  if user choice 1 return = rock
 //  if user choice 2 return = paper
 //  if user choice 3 return = scissors
 
-const rock = 1;
-const paper = 2;
-const scissors = 3;
+//  step 3 play round
+
+//
 
 function getComputerChoice() {
-    const computerChoice = Math.floor(Math.random() * 3) + 1;
-    if (computerChoice === rock) return "rock";
-    if (computerChoice === paper) return "paper";
-    if (computerChoice === scissors) return "scissors";
+    const computerChoices = ["rock", "paper", "scissors"];
+    const i = Math.floor(Math.random() * computerChoices.length);
+    return computerChoices[i];   
 }
+console.log(getComputerChoice())
 
 function getUserChoice(userChoice) {
-
-    if (userChoice === rock) return "rock";
-    if (userChoice === paper) return "paper";
-    if (userChoice === scissors) return "scissors";
+    
+    if (userChoice === "rock") return "rock";
+    if (userChoice === "paper") return "paper";
+    if (userChoice === "scissors") return "scissors";
 }
 
-const userInput = prompt("Rock, paper, scissors!");
-console.log(getUserChoice(userInput));
+
+let userInput = prompt("rock, paper, scissors!");
+let userChoice = getUserChoice(userInput);
+console.log(getUserChoice(userChoice))
+
+let userScore = 0;
+let computerScore = 0;
+
+
+
+function playRound(userChoice,computerScore) {
+    if (userChoice === getComputerChoice()) return [userScore += 1, computerScore += 1];
+}
+
+console.log(playRound(userScore,computerScore));
