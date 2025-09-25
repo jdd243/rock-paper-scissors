@@ -31,7 +31,6 @@ function getComputerChoice() {
     const i = Math.floor(Math.random() * computerChoices.length);
     return computerChoices[i];   
 }
-console.log(getComputerChoice())
 
 //step 2
 
@@ -45,17 +44,39 @@ function getUserChoice(userChoice) {
 
 let userInput = prompt("rock, paper, scissors!");
 let userChoice = getUserChoice(userInput);
-console.log(getUserChoice(userChoice))
-
-//step 3
-
-let userScore = 0;
-let computerScore = 0;
 
 
+//step 3, play a round tie/win/loose
 
-function playRound(userChoice,computerScore) {
-    if (userChoice === getComputerChoice()) return [userScore += 1, computerScore += 1];
+
+function playRound(userChoice,computerChoice) {
+
+    if (userChoice === computerChoice) {
+    return "tie!";}
+    else if (
+    (userChoice === "rock" && computerChoice === "scissors")||
+    (userChoice === "paper" && computerChoice === "rock")||
+    (userChoice === "scissors" && computerChoice === "paper")
+    ){
+            return "you win!"
+        } 
+    else return "Computer wins!"
 }
 
-console.log(playRound(userScore,computerScore));
+// input getUserChoice and get ComputerChoice into play round function
+
+const userSelection = getUserChoice(userInput);
+let compSelection = getComputerChoice();
+
+//show user and comp choices
+
+console.log("User:", userChoice);
+console.log("Computer:", compSelection);
+
+//show round result
+
+const roundResult = playRound(userChoice,compSelection)
+
+console.log(roundResult);
+
+//step 4, create score board
