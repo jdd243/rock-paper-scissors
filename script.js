@@ -78,14 +78,11 @@ function playGame(userScore, compScore) {
     console.log(`Computer choice: ${compSelection}`);
 
 
-    if (roundResult === "you win!")
-        {
-        userScore++;
-    }
-    else if (roundResult === "Computer wins!")
-        {
-        compScore++;
-    }
+    if (roundResult === "you win!"){
+        userScore++; }
+
+    else if (roundResult === "Computer wins!"){
+        compScore++; }
 
     console.log(`User Score: ${userScore}`);
     console.log(`Computer Score: ${compScore}`);
