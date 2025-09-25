@@ -24,16 +24,14 @@
 //  keep score of user and comp
 // 
 
-//step 1
-
+//step 1 generate random compChoice
 function getComputerChoice() {
     const computerChoices = ["rock", "paper", "scissors"];
     const i = Math.floor(Math.random() * computerChoices.length);
     return computerChoices[i];   
 }
 
-//step 2
-
+//step 2 generate userChoice 
 function getUserChoice(userChoice) {
     
     if (userChoice === "rock") return "rock";
@@ -41,14 +39,11 @@ function getUserChoice(userChoice) {
     if (userChoice === "scissors") return "scissors";
 }
 
-
+// generate user choice with prompt
 let userInput = prompt("rock, paper, scissors!");
 let userChoice = getUserChoice(userInput);
 
-
-//step 3, play a round tie/win/loose
-
-
+//step 3, play a round tie/win/loose (compare choices)
 function playRound(userChoice,computerChoice) {
 
     if (userChoice === computerChoice) {
@@ -63,20 +58,18 @@ function playRound(userChoice,computerChoice) {
     else return "Computer wins!"
 }
 
-// input getUserChoice and get ComputerChoice into play round function
-
+// input getUserChoice + ComputerChoice into playRound 
 const userSelection = getUserChoice(userInput);
 let compSelection = getComputerChoice();
 
-//show user and comp choices
-
-console.log("User:", userChoice);
-console.log("Computer:", compSelection);
-
-//show round result
-
+//generate round result
 const roundResult = playRound(userChoice,compSelection)
 
+console.log("Computer:", compSelection);
+console.log("User:", userChoice);
 console.log(roundResult);
 
-//step 4, create score board
+
+
+
+//step 4, create score board function
