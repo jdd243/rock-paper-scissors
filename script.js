@@ -40,8 +40,7 @@ function getUserChoice(userChoice) {
 }
 
 // generate user choice with prompt
-let userInput = prompt("rock, paper, scissors!");
-let userChoice = getUserChoice(userInput);
+
 
 //step 3, play a round tie/win/loose (compare choices)
 function playRound(userChoice,computerChoice) {
@@ -59,17 +58,40 @@ function playRound(userChoice,computerChoice) {
 }
 
 // input getUserChoice + ComputerChoice into playRound 
-const userSelection = getUserChoice(userInput);
-let compSelection = getComputerChoice();
+//const userSelection = getUserChoice(userInput);
+//let compSelection = getComputerChoice();
 
 //generate round result
-const roundResult = playRound(userChoice,compSelection)
+//const roundResult = playRound(userChoice,compSelection)
 
-console.log("Computer:", compSelection);
-console.log("User:", userChoice);
-console.log(roundResult);
+function playGame(userScore, compScore) {
+    
+
+    for(let i = 0; i < 5; i++){
+    let userInput = prompt("rock, paper, scissors!");
+    let userChoice = getUserChoice(userInput)
+    let compSelection = getComputerChoice();
+    let roundResult = playRound(userChoice, compSelection)
+    
+    console.log(`Round: ${i + 1}`);
+    console.log(`User choice: ${userChoice}`);
+    console.log(`Computer choice: ${compSelection}`);
 
 
+    if (roundResult === "you win!")
+        {
+        userScore++;
+    }
+    else if (roundResult === "Computer wins!")
+        {
+        compScore++;
+    }
+
+    console.log(`User Score: ${userScore}`);
+    console.log(`Computer Score: ${compScore}`);
+
+    }
 
 
-//step 4, create score board function
+}
+playGame(0, 0)
