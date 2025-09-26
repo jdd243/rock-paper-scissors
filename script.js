@@ -33,16 +33,16 @@ function getComputerChoice() {
 
 //step 2 generate userChoice 
 function getUserChoice(userChoice) {
-    
+
+    userChoice = userChoice.toLowerCase();
+
     if (userChoice === "rock") return "rock";
     if (userChoice === "paper") return "paper";
     if (userChoice === "scissors") return "scissors";
 }
 
-// generate user choice with prompt
-
-
 //step 3, play a round tie/win/loose (compare choices)
+
 function playRound(userChoice,computerChoice) {
 
     if (userChoice === computerChoice) {
@@ -57,12 +57,7 @@ function playRound(userChoice,computerChoice) {
     else return "Computer wins!"
 }
 
-// input getUserChoice + ComputerChoice into playRound 
-//const userSelection = getUserChoice(userInput);
-//let compSelection = getComputerChoice();
-
-//generate round result
-//const roundResult = playRound(userChoice,compSelection)
+//  Step 4, loop play round 5 times and declare winner
 
 function playGame(userScore, compScore) {
     
@@ -89,6 +84,20 @@ function playGame(userScore, compScore) {
 
     }
 
+    if ( userScore > compScore ) {
+        alert("You won the game!")
+    }
+    else if ( userScore === compScore ) {
+        alert("Game tied!")
+    }
+    else alert("You lose.")
+
 
 }
-playGame(0, 0)
+
+//  Start game at the press of the button
+
+document.getElementById("start-game").addEventListener("click", () => { playGame(0, 0) });
+  
+
+
