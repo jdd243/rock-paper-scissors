@@ -28,7 +28,7 @@ function playRound(userChoice,computerChoice) {
     else return "Computer wins!"
 }
 
-function playGame(userScore, compScore) {
+function playGame() {
     
     let userScore = 0;
     let computerScore = 0;
@@ -38,18 +38,43 @@ function playGame(userScore, compScore) {
     const buttons = document.querySelectorAll('.player-selection');
 
     buttons.forEach(button => {
-        button.addEventListener("click", (element) =>{
+        button.addEventListener("click", (element) => {
             if (roundsPlayed >= roundsToPlay) return;
 
             const userChoice = element.currentTarget.value;
+            const compSelection = getComputerChoice();
+            const roundResults = playRound(userChoice, compSelection);
+
+            if (roundResults === "you win!") userScore++;
+            else if (roundResults === "Computer wins!") computerScore++;
+
+            roundsPlayed++;
+
+            const playerScoreEl = document.getElementById("player-score");
+            playerScoreEl.textContent = userScore;
+
+            const computerScoreEl = document.getElementById("computer-score");
+            computerScoreEl.textContent = computerScore;
+
+            const roundsPlayedEl = document.getElementById("rounds-played");
+            roundsPlayedEl.textContent = roundsPlayed;
+
+            if(roundsPlayed === roundsToPlay) {
+                
+                const winnerMessageEl = document.getElementById("winner-message");
+
+                if (userScore > computerScore) winnerMessageEl.textContent = "You win!";
+                else if (userScore < computerScore) winnerMessageEl.textContent = "Computer Wins!";
+                else winnerMessageEl.textContent = "Tie game!";
+            }
+
             
         })
     })
 
 
-
-
 }
+playGame()
 
   
 
