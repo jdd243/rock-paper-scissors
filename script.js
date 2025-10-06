@@ -30,36 +30,23 @@ function playRound(userChoice,computerChoice) {
 
 function playGame(userScore, compScore) {
     
+    let userScore = 0;
+    let computerScore = 0;
+    let roundsPlayed = 0;
+    const roundsToPlay = 5;
 
-    for(let i = 0; i < 5; i++){
-    let userInput = prompt("rock, paper, scissors!");
-    let userChoice = getUserChoice(userInput)
-    let compSelection = getComputerChoice();
-    let roundResult = playRound(userChoice, compSelection)
-    
-    console.log(`Round: ${i + 1}`);
-    console.log(`User choice: ${userChoice}`);
-    console.log(`Computer choice: ${compSelection}`);
+    const buttons = document.querySelectorAll('.player-selection');
+
+    buttons.forEach(button => {
+        button.addEventListener("click", (element) =>{
+            if (roundsPlayed >= roundsToPlay) return;
+
+            const userChoice = element.currentTarget.value;
+            
+        })
+    })
 
 
-    if (roundResult === "you win!"){
-        userScore++; }
-
-    else if (roundResult === "Computer wins!"){
-        compScore++; }
-
-    console.log(`User Score: ${userScore}`);
-    console.log(`Computer Score: ${compScore}`);
-
-    }
-
-    if ( userScore > compScore ) {
-        alert("You won the game!")
-    }
-    else if ( userScore === compScore ) {
-        alert("Game tied!")
-    }
-    else alert("You lose.")
 
 
 }
