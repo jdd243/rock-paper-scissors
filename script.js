@@ -63,7 +63,7 @@ function playGame(userScore, compScore) {
 
 
 }
-document.getElementById("start-game").addEventListener("click", () => { playGame(0, 0) });
+
   
 
 
